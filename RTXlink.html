@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script> 
+var request = {  
+QueryString : function(val) {  
+var uri = window.location.search;  
+var re = new RegExp("" +val+ "=([^&?]*)", "ig");  
+return ((uri.match(re))?(uri.match(re)[0].substr(val.length+1)):null);  
+}  
+}  
+var urlflag = request.QueryString  ("a");
+if(urlflag==1)url="http://10.0.0.120:8080/kingdee/login/loginpage.jsp"
+else if(urlflag==2)url="http://220.189.244.202:8088/K3WEB/login.aspx"
+else if(urlflag==3)url="http://kddata/zhongwancan/"
+else if(urlflag==4)url="http://www.mefront.com/"
+function newwindow(isBig)
+{
+	if (isBig=="false")
+	{
+		var x=screen.availWidth-10;
+		var y=screen.availHeight-25;
+		var s=open(url,"","location=yes,width="+x+",height="+y+",top=0,left=0");
+		if (!s)
+			alert("您的浏览器启动了禁止弹出窗口的功能，运行本系统需关闭此功能！");
+		else
+		{
+			this.focus();
+//			this.opener=null;
+//			this.close();
+			s.focus();
+		}
+	}
+	else
+		location.href=url;
+}
+</script>
+
+</head>
+
+<body onload="newwindow('false')">
+</body>
+</html>
